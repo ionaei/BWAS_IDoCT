@@ -21,7 +21,7 @@ import model
 
 
 #make the graphs
-import generate_graphs_func_val
+import generate_graphs_func
 
 #train function
 import train
@@ -66,7 +66,7 @@ cog_directory = "location of cognitive data in csv form"
 image_directory = 'location of rs-fMRI data matrices'
 
 #under outcome, options are "AS" or "DT" depending which investigated trait is of interest
-graphs = generate_graphs_func_val.generate_graphs(directory_graphs=image_directory, dim=21, node_type=parser.args.node_feature, path_to_csv=cog_directory, outcome='AS', threshold_edge=parser.args.threshold)
+graphs = generate_graphs_func.generate_graphs(directory_graphs=image_directory, dim=21, node_type=parser.args.node_feature, path_to_csv=cog_directory, outcome='AS', threshold_edge=parser.args.threshold)
 
 dataset = GraphDataset(graphs=graphs, split_sizes=(0.7, 0.2, 0.1), seed=912, device='cpu')
 
